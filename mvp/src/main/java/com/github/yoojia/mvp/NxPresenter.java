@@ -12,10 +12,22 @@ import android.content.Context;
  */
 public interface NxPresenter<V extends NxView> {
 
+    void onStart();
+    void onStop();
+
+    @Deprecated
     void start();
+
+    @Deprecated
     void stop();
 
+    void onCreate();
+    void onDestroy();
+
+    @Deprecated
     void create();
+
+    @Deprecated
     void destroy();
 
     V getView();

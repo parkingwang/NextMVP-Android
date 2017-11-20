@@ -16,12 +16,12 @@ public abstract class NxBaseUiView extends NxBaseView implements NxUiView {
 
     @Override
     final public void showProgress() {
-        showProgressImpl("LOADING");
+        onShowProgressImpl("LOADING");
     }
 
     @Override
     final public void showProgress(String message) {
-        showProgressImpl(message);
+        onShowProgressImpl(message);
     }
 
     @Override
@@ -54,7 +54,27 @@ public abstract class NxBaseUiView extends NxBaseView implements NxUiView {
         }, timeoutMs);
     }
 
-    protected void showProgressImpl(String message){
+    @Override
+    final public void showMessage(int message) {
+        showMessage(getContext().getString(message));
+    }
+
+    @Override
+    final public void showMessage(String message) {
+        onShowMessageImpl(message, false);
+    }
+
+    @Override
+    final public void showMessageLong(String message) {
+        onShowMessageImpl(message, true);
+    }
+
+    @Override
+    final public void showMessageLong(int message) {
+        showMessage(getContext().getString(message));
+    }
+
+    protected void onShowProgressImpl(String message){
         ProgressDialog dialog = new ProgressDialog(getContext());
         dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         dialog.setMessage(message);
@@ -64,28 +84,10 @@ public abstract class NxBaseUiView extends NxBaseView implements NxUiView {
         mWeakDialog = new WeakReference<>(dialog);
     }
 
-    @Override
-    final public void showMessage(int message) {
-        showMessage(getContext().getString(message));
-    }
-
-    @Override
-    final public void showMessage(String message) {
-        showMessageImpl(message, false);
-    }
-
-    @Override
-    final public void showMessageLong(String message) {
-        showMessageImpl(message, true);
-    }
-
-    @Override
-    final public void showMessageLong(int message) {
-        showMessage(getContext().getString(message));
-    }
-
-    protected void showMessageImpl(String message, boolean isLong){
-        Toast.makeText(getContext(), message, isLong ? Toast.LENGTH_LONG : Toast.LENGTH_SHORT)
-                .show();
+    protected void onShowMessageImpl(String message, boolean isLong){
+        Toast.makeText(getContext(),
+                message,
+                isLong ? Toast.LENGTH_LONG : Toast.LENGTH_SHORT)
+            .show();
     }
 }

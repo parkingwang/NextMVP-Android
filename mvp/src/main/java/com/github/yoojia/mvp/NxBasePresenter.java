@@ -28,22 +28,42 @@ public abstract class NxBasePresenter<V extends NxView> implements NxPresenter<V
     }
 
     @Override
-    public void create() {
-        // NOP
-    }
-
-    @Override
-    public void destroy() {
-        // NOP
-    }
-
-    @Override
     public void start() {
-        // NOP
+        this.onStart();
     }
 
     @Override
     public void stop() {
+        this.onStop();
+    }
+
+    @Override
+    public void create() {
+        this.onCreate();
+    }
+
+    @Override
+    public void destroy() {
+        this.onDestroy();
+    }
+
+    @Override
+    public void onCreate() {
+        // NOP
+    }
+
+    @Override
+    public void onDestroy() {
+        // NOP
+    }
+
+    @Override
+    public void onStart() {
+        // NOP
+    }
+
+    @Override
+    public void onStop() {
         // NOP
     }
 

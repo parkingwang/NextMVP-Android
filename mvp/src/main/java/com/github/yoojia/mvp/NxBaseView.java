@@ -11,11 +11,21 @@ public abstract class NxBaseView implements NxView {
 
     @Override
     public void init(View container) {
-
+        this.onInit(container);
     }
 
     @Override
     public void init(Activity activity) {
+        this.onInit(activity);
+    }
+
+    @Override
+    public void onInit(View container) {
+
+    }
+
+    @Override
+    public void onInit(Activity activity) {
 
     }
 

@@ -17,6 +17,9 @@ public interface NxView {
     void init(View container);
     void init(Activity activity);
 
+    void onInit(View container);
+    void onInit(Activity activity);
+
     Context getContext();
     Activity getActivity();
 }
