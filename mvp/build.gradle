@@ -18,8 +18,7 @@ apply plugin: 'com.jfrog.bintray'
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.3"
+    compileSdkVersion 26
 
     defaultConfig {
         minSdkVersion 9
@@ -41,7 +40,7 @@ dependencies {
 
 
 ext{
-    projVersion = '1.0.0-BETA'
+    projVersion = '1.1.0-BETA'
     projArtifactId = 'next-mvp-android'
     projName = 'NextMVP-Android'
     projDesc = 'NextMVP-Android: MVP Scaffold for Android'
