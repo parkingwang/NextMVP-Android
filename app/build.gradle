@@ -33,7 +33,7 @@ dependencies {
     compile 'com.android.support:design:26.1.0'
 
 //     compile project(':mvp')
-    compile 'com.github.yoojia:next-mvp-android:1.0.0-Alpha'
+    compile 'com.github.yoojia:next-mvp-android:1.1.0-ALPHA'
 
     testCompile 'junit:junit:4.12'
 }

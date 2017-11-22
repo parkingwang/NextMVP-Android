@@ -13,5 +13,5 @@
 ## Add Dependency
 
 ```gradle
-    compile 'com.github.yoojia:next-mvp-android:1.0.0-Alpha'
+    compile 'com.github.yoojia:next-mvp-android:1.1.0-ALPHA'
 ```
