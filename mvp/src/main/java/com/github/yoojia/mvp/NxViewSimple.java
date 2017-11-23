@@ -1,6 +1,7 @@
 package com.github.yoojia.mvp;
 
 import android.app.Activity;
+import android.app.Application;
 import android.content.Context;
 import android.view.View;
 
@@ -10,27 +11,25 @@ import android.view.View;
 public abstract class NxViewSimple implements NxView {
 
     @Override
-    public void init(View container) {
-        this.onInit(container);
-    }
-
-    @Override
-    public void init(Activity activity) {
-        this.onInit(activity);
-    }
-
-    @Override
     public void onInit(View container) {
 
     }
 
     @Override
-    public void onInit(Activity activity) {
+    public <T extends Activity> void onInit(T activity) {
 
     }
 
     @Override
-    public Context getContext() {
-        return getActivity();
+    @SuppressWarnings("unchecked")
+    public <R extends Context> R getContext() {
+        return (R) (getActivity());
     }
+
+    @Override
+    @SuppressWarnings("unchecked")
+    public <R extends Application> R getApplication() {
+        return (R) (getActivity().getApplication());
+    }
+
 }

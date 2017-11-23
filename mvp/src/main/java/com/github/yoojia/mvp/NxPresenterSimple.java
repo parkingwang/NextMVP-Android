@@ -1,5 +1,6 @@
 package com.github.yoojia.mvp;
 
+import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 
@@ -24,10 +25,16 @@ public abstract class NxPresenterSimple<V extends NxView> implements NxPresenter
     }
 
     @Override
-    public Context getContext() {
+    public <R extends Activity> R getActivity() {
+        return getView().getActivity();
+    }
+
+    @Override
+    public <R extends Context> R getContext() {
         return getView().getContext();
     }
 
+    @Override
     @SuppressWarnings("unchecked")
     public <R extends Application> R getApplication() {
         return (R) getContext().getApplicationContext();
@@ -63,26 +70,6 @@ public abstract class NxPresenterSimple<V extends NxView> implements NxPresenter
     }
 
     //////
-
-    @Override
-    public void start() {
-        this.onStart();
-    }
-
-    @Override
-    public void stop() {
-        this.onStop();
-    }
-
-    @Override
-    public void create() {
-        this.onCreate();
-    }
-
-    @Override
-    public void destroy() {
-        this.onDestroy();
-    }
 
     @Override
     public void onCreate() {

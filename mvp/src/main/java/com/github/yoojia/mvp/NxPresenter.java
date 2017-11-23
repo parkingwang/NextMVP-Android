@@ -4,6 +4,8 @@
 
 package com.github.yoojia.mvp;
 
+import android.app.Activity;
+import android.app.Application;
 import android.content.Context;
 
 /**
@@ -15,23 +17,15 @@ public interface NxPresenter<V extends NxView> {
     void onStart();
     void onStop();
 
-    @Deprecated
-    void start();
-
-    @Deprecated
-    void stop();
-
     void onCreate();
     void onDestroy();
 
-    @Deprecated
-    void create();
-
-    @Deprecated
-    void destroy();
-
     V getView();
 
-    Context getContext();
+    <R extends Context> R getContext();
+
+    <R extends Activity> R getActivity();
+
+    <R extends Application> R getApplication();
 
 }

@@ -5,6 +5,7 @@
 package com.github.yoojia.mvp;
 
 import android.app.Activity;
+import android.app.Application;
 import android.content.Context;
 import android.view.View;
 
@@ -14,12 +15,13 @@ import android.view.View;
  */
 public interface NxView {
 
-    void init(View container);
-    void init(Activity activity);
-
     void onInit(View container);
-    void onInit(Activity activity);
 
-    Context getContext();
-    Activity getActivity();
+    <T extends Activity> void onInit(T activity);
+
+    <R extends Context> R getContext();
+
+    <R extends Activity> R getActivity();
+
+    <R extends Application> R getApplication();
 }
