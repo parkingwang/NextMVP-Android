@@ -40,6 +40,11 @@ public abstract class NxPresenterSimple<V extends NxView> implements NxPresenter
         return (R) getContext().getApplicationContext();
     }
 
+    @Override
+    public boolean hasContext() {
+        return null != getContext();
+    }
+
     //// Helper
 
     protected Runnable newTaskHideProgress() {

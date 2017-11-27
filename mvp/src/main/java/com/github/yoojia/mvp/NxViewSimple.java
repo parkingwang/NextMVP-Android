@@ -32,4 +32,8 @@ public abstract class NxViewSimple implements NxView {
         return (R) (getActivity().getApplication());
     }
 
+    @Override
+    public boolean hasContext() {
+        return null != getContext();
+    }
 }

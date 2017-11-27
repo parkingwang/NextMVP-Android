@@ -22,6 +22,8 @@ public interface NxPresenter<V extends NxView> {
 
     V getView();
 
+    boolean hasContext();
+
     <R extends Context> R getContext();
 
     <R extends Activity> R getActivity();

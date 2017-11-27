@@ -19,6 +19,8 @@ public interface NxView {
 
     <T extends Activity> void onInit(T activity);
 
+    boolean hasContext();
+
     <R extends Context> R getContext();
 
     <R extends Activity> R getActivity();
