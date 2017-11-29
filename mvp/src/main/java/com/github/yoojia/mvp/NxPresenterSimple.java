@@ -1,6 +1,7 @@
 package com.github.yoojia.mvp;
 
 import android.app.Activity;
+import android.content.Context;
 
 /**
  * @author 陈哈哈 chenyongjia@parkingwang, yoojiachen@gmail.com
@@ -26,6 +27,11 @@ public abstract class NxPresenterSimple<V extends NxView> extends NxContextSimpl
     @Override
     public <R extends Activity> R getActivity() {
         return getView().getActivity();
+    }
+
+    @Override
+    public <R extends Context> R getContext() {
+        return getView().getContext();
     }
 
     //// Helper
