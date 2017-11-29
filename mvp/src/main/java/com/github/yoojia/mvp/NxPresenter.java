@@ -5,14 +5,12 @@
 package com.github.yoojia.mvp;
 
 import android.app.Activity;
-import android.app.Application;
-import android.content.Context;
 
 /**
  * @author 陈哈哈 chenyongjia@parkingwang, yoojiachen@gmail.com
  * @since 1.0.0
  */
-public interface NxPresenter<V extends NxView> {
+public interface NxPresenter<V extends NxView> extends NxContext {
 
     void onStart();
     void onStop();
@@ -22,12 +20,5 @@ public interface NxPresenter<V extends NxView> {
 
     V getView();
 
-    boolean hasContext();
-
-    <R extends Context> R getContext();
-
     <R extends Activity> R getActivity();
-
-    <R extends Application> R getApplication();
-
 }

@@ -1,14 +1,13 @@
 package com.github.yoojia.mvp;
 
 import android.app.Activity;
-import android.app.Application;
-import android.content.Context;
 
 /**
  * @author 陈哈哈 chenyongjia@parkingwang, yoojiachen@gmail.com
  * @since 1.0.0
  */
-public abstract class NxPresenterSimple<V extends NxView> implements NxPresenter<V> {
+public abstract class NxPresenterSimple<V extends NxView> extends NxContextSimple
+        implements NxPresenter<V> {
 
     private final V mView;
 
@@ -27,22 +26,6 @@ public abstract class NxPresenterSimple<V extends NxView> implements NxPresenter
     @Override
     public <R extends Activity> R getActivity() {
         return getView().getActivity();
-    }
-
-    @Override
-    public <R extends Context> R getContext() {
-        return getView().getContext();
-    }
-
-    @Override
-    @SuppressWarnings("unchecked")
-    public <R extends Application> R getApplication() {
-        return (R) getContext().getApplicationContext();
-    }
-
-    @Override
-    public boolean hasContext() {
-        return null != getContext();
     }
 
     //// Helper

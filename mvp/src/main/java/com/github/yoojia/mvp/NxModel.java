@@ -8,5 +8,8 @@ package com.github.yoojia.mvp;
  * @author 陈哈哈 chenyongjia@parkingwang, yoojiachen@gmail.com
  * @since 1.0.0
  */
-public interface NxModel {
+public interface NxModel extends NxContext {
+
+    void onInit();
+
 }
